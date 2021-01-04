@@ -1,24 +1,27 @@
 import {useState, useEffect} from 'react';
+import {Route, Link, Switcher} from 'react-router-dom';
 import './App.css';
 import Movie from './Movie';
-import WatchList from './WatchList';
+import WatchList from './Components/WatchList/WatchList';
+import {API_URL, API_KEY} from './Config';
 
-const App = () => {
+function App () {
   const [movies, setMovies] = useState([]);
   const [watchList, updateWatchList] = useState([]);
-  // const updateMovies = async () => {
+  const updateMovies = async (num) => {
 
-  //   try {
-  //     const apiEndpoint = "";
+    try {
+      
+      const response = await fetch(`${API_URL}movie/popular?${API_KEY}&language=en-US&page=${num}`);
 
-  //     const response = await fetch(apiEndpoint);
+      const data = await response.json();
+      setMovies(data.results);
+    } catch {
+      console.log('Failed to retrieve movies')
 
-  //     const data = await response.json();
-  //     setMovies(data);
-  //   } catch {
-  //     console.log('Failed to retrieve movies')
-  //   }
-  // }
+    }
+
+  }
 
 
   const handleSubmit = (e) => {
@@ -36,20 +39,24 @@ const App = () => {
   }
 
   useEffect (() => {
-    // updateMovies();
+    updateMovies();
     console.log('useEffect')
   }, []);
 
 
   return (
-    <div>
-      <header>
+    <div className="App">
+      <title>GOATflix</title>
+      <nav>
+        <div className="nav-routes">
+        </div>
+      </nav>
           <ul>
             {
               movies.map((movie, index) => {
                 return (<Movie
                 title={movie.title}
-                releaseDate={movie.releaseDate}
+                releaseDate={movie.release_date}
                 poster={movie.poster_path}
                 addToWatchList={addToWatchList}
                 />)
@@ -59,7 +66,6 @@ const App = () => {
           <WatchList watchListItems={watchList}
           removeFromWatchList={removeFromWatchList}
           />
-      </header>
     </div>
   )
 }
