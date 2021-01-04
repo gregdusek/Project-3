@@ -1,7 +1,6 @@
 const express = require('express');
 const movies = express.Router();
-const User = require('../models/users.js')
-const jwt = require('jsonwebtoken');
+
 
 // const auth = async (req, res, next) => {
 //     const {authorization} = req.headers;
