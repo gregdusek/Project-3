@@ -1,14 +1,54 @@
-.App {
-  text-align: center;
+body {
+  background: rgb(36, 36, 36);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#logo {
+  margin: 20px 0 0 20px;
+  max-width: 120px;
+  display: flex;
+}
+
+.logo-container {
   display: flex;
   flex-direction: column;
+}
+
+.logo-container > h1 {
+  color: white;
+  margin: 10px 0 10px 40px;
+}
+
+.nav-bar{
+  background-color: rgb(16, 16, 16);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-routes {
+  display: flex;
+}
+
+.movie-grid {
+  padding: 60px;
+  filter: drop-shadow(#000000 7px 7px 3px);
+}
+
+.movie-grid img:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+
+.movie-grid > ul {
+  margin: 0 auto;
+  display: grid;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 3fr);
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+  max-width: 300px;
 }
