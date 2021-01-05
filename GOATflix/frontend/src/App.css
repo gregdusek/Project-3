@@ -3,8 +3,8 @@ body {
 }
 
 #logo {
-  margin: 20px 0 0 20px;
-  max-width: 120px;
+  margin: 20px 0 10px 20px;
+  max-width: 180px;
   display: flex;
 }
 
@@ -29,6 +29,34 @@ body {
   display: flex;
 }
 
+/* .sort-by-container > h2 {
+  margin: 0;
+  margin-bottom: 1rem;
+  color: white;
+
+}
+
+.sort-by-container {
+  border-radius: 3px;
+	width: 50%;
+	margin-top: 2rem;
+	background: rgb(16, 16, 16);
+  display: column;
+  align-items: center;
+  justify-items: center;
+	padding: 1rem;
+}
+
+.sort-button {
+  display: row;
+  font-size: 1rem;
+	background: transparent;
+	border: none;
+	margin: 0.5rem;
+  color: gold;
+  cursor: pointer;
+} */
+
 .movie-grid {
   padding: 60px;
   filter: drop-shadow(#000000 7px 7px 3px);
@@ -38,7 +66,7 @@ body {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
-}
+  }
 
 
 .movie-grid > ul {
