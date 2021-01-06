@@ -8,44 +8,33 @@ import MovieCard from './Components/MovieCard/MovieCard.js'
 
 function App () {
 
-  // const [movies, setMovies] = useState([]);
-  // const [watchList, updateWatchList] = useState([]);
-
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-
-  // }
-
-  // const addToWatchList = (index) => {
-  //   const currentMovie = movies[index];
-  //   updateWatchList([...watchList, currentMovie]);
-  // }
-
-  // const removeFromWatchList = (index) => {
-  //   updateWatchList([...watchList.slice(0, index), ...watchList.slice(index + 1)]);
-  // }
-
 
 
   return (
     <div className="App">
-      <title>GOATflix</title>
       <nav class='nav-bar'>
         <div class='logo-container'>
         <a href="/">
           <img id="logo" src='https://res.cloudinary.com/gregdusek/image/upload/v1609875563/GOATflix/GOATflix_nzf8rs.png' alt=""/></a>
         </div> 
-        
+        <div className='search-container'>
+          <img id='search-icon' src="https://res.cloudinary.com/gregdusek/image/upload/v1609890114/GOATflix/search_icon_mpdoc3.png" alt=""/>
+          <form>
+            
+          </form>
+        </div>
         <div className='nav-routes'>
-          <Link className='' to='/'>Home</Link>
-          <Link className='' to='/WatchList'>Watch List</Link>
+          <Link to='/'>Home</Link>
+          <Link to='/WatchList'>Watch List</Link>
         </div>
       </nav>
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/WatchList' component={WatchList} />
-        <Route path='/MovieCard' component={MovieCard} />
+        <Route path='/MovieCard/:id' render={routerProps => {
+          return <MovieCard routerProps={routerProps} />
+        }} />
+        
       </Switch>
     </div>
   )
