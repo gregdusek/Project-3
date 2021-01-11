@@ -32,12 +32,12 @@ const Home = () => {
       
     return (
         <>
-        {/* <div className='sort-by-container'>
+        <div className='sort-by-container'>
             <h2>SORT BY:</h2>
               <button class='sort-button'>Most Popular</button>
               <button class='sort-button'>Latest</button>
               <button class='sort-button'>Top Rated</button>
-        </div> */}
+        </div>
         <div className="movie-grid">
             <ul>
             

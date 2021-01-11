@@ -29,6 +29,38 @@ body {
   display: flex;
 }
 
+.movie-card > h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-card {
+  display: flex;
+  flex-direction: column;
+}
+
+#backdrop {
+  object-fit: cover;
+  opacity: 60%;
+  
+}
+
+#movie-poster {
+  position: absolute;
+  top: 45%;
+  left: 5%;
+  filter: drop-shadow(#000000 7px 7px 3px);
+}
+
+h3 {
+  background-color: rgb(52, 52, 52);
+  position: absolute;
+  top: 43%;
+  left: 60%;
+  margin: 150px;
+  
+}
+
 /* .sort-by-container > h2 {
   margin: 0;
   margin-bottom: 1rem;

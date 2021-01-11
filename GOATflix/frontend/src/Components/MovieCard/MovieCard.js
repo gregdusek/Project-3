@@ -24,8 +24,16 @@ const MovieCard = (props) => {
 
     return (
         <div className="movie-card">
-            {movie.title}
-            {/* <img src={`https://image.tmdb.org/t/p/w300/${poster}`} alt=''/> */}
+            <h1>{movie.title}</h1>
+                <img id="backdrop" src={`https://image.tmdb.org/t/p/w1280/${movie.backdrop_path}`}alt='' />
+            <div id="card-poster-container">
+                <img id="movie-poster" src={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`} alt=''/>
+            </div>
+            
+            <h3>{movie.overview}</h3>
+          
+
+                
 
         </div>
     )

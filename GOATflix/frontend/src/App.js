@@ -1,14 +1,40 @@
-import {useState, useEffect, useRef} from 'react';
 import {Route, Link, Switch} from 'react-router-dom';
+import {useState, useEffect, useRef} from 'react';
 import './App.css';
 import Home from './Components/Home/Home.js' 
 import WatchList from './Components/WatchList/WatchList.js'
 import MovieCard from './Components/MovieCard/MovieCard.js'
 
 
-function App () {
+function App() {
+  const [list, setList] = useState([])
 
+    const fetchList = async () => {
+      try{
+          const response = await fetch('https://localhost:3000/WatchList');
+          const data = await response.json();
+          setList(data)
+      } catch (error) {
+          console.error(error)
+      }
+  }
 
+  const deleteList = async (id) => {
+    try {
+      const response = await fetch(`https://localhost:3000/WatchList`, {
+        method: 'DELETE',
+      })
+      const data = await response.json();
+      const filteredList = list.filter(list=> list._id !== data._id)
+      setList(filteredList);
+    } catch(error) {
+      console.error(error)
+    }
+  }
+
+  useEffect(() => {
+    fetchList()
+  }, [])
 
   return (
     <div className="App">
@@ -19,9 +45,6 @@ function App () {
         </div> 
         <div className='search-container'>
           <img id='search-icon' src="https://res.cloudinary.com/gregdusek/image/upload/v1609890114/GOATflix/search_icon_mpdoc3.png" alt=""/>
-          <form>
-            
-          </form>
         </div>
         <div className='nav-routes'>
           <Link to='/'>Home</Link>
@@ -34,7 +57,6 @@ function App () {
         <Route path='/MovieCard/:id' render={routerProps => {
           return <MovieCard routerProps={routerProps} />
         }} />
-        
       </Switch>
     </div>
   )
